@@ -35,7 +35,7 @@ def load_model(model_type: str, model_path: str):
     return model
 
 # Load selected model
-model_types = ["MobileNetV3 Small", "MobileNetV3 Large", "DenseNet"]
+model_types = ["MobileNetV3 Small", "MobileNetV3 Large", "DenseNet 121"]
 model_choice = st.selectbox("Select Model Type:", model_types)
 model_file=""
 if model_choice=="DenseNet 121":
