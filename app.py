@@ -61,7 +61,7 @@ transform = transforms.Compose([
 # Upload and process image
 uploaded_file = st.file_uploader("Upload an image (JPG/PNG)", type=["jpg", "jpeg", "png"])
 
-if uploaded_file and 'model' in locals():
+if uploaded_file or 'model' in locals():
     # Load and preprocess the image
     image = Image.open(uploaded_file).convert("RGB")
     st.image(image, caption="Uploaded Image", use_column_width=True)
