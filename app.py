@@ -37,8 +37,13 @@ def load_model(model_type: str, model_path: str):
 # Load selected model
 model_types = ["MobileNetV3 Small", "MobileNetV3 Large", "DenseNet"]
 model_choice = st.selectbox("Select Model Type:", model_types)
-model_file = st.text_input("Enter model file path:", "path/to/your/model.pth")
-
+model_file=""
+if model_choice=="DenseNet 121":
+    model_file= "densenet_balanced_best_model.pth"
+if model_choice=="MobileNetV3 Small":
+    model_file= "mobilenet_small_Adv_consol.pth"
+if model_choice=="MobileNetV3 Large":
+    model_file= "mobilenet_large_consol_Adv.pth"        
 if st.button("Load Model"):
     if not os.path.exists(model_file):
         st.error("Model file does not exist. Please check the path.")
