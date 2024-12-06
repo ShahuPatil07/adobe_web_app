@@ -40,7 +40,7 @@ model_choice = st.selectbox("Select Model Type:", model_types)
 model_file=""
 model=""
 if model_choice=="DenseNet 121":
-    model_file= "densenet_balanced_best_model.pth"
+    model_file= "densenet_final_best_model.pth"
 if model_choice=="MobileNetV3 Small":
     model_file= "mobilenet_small_Adv_consol.pth"
 if model_choice=="MobileNetV3 Large":
