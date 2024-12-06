@@ -6,7 +6,7 @@ from PIL import Image
 import streamlit as st
 
 # Streamlit App Title
-st.title("Image Classification with DenseNet and MobileNet")
+st.title("Adobe Inter IIT Tech: Task 1")
 
 # Configure device
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
