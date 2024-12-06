@@ -38,12 +38,14 @@ def load_model(model_type: str, model_path: str):
 model_types = ["MobileNetV3 Small", "MobileNetV3 Large", "DenseNet 121"]
 model_choice = st.selectbox("Select Model Type:", model_types)
 model_file=""
+model=""
 if model_choice=="DenseNet 121":
     model_file= "densenet_balanced_best_model.pth"
 if model_choice=="MobileNetV3 Small":
     model_file= "mobilenet_small_Adv_consol.pth"
 if model_choice=="MobileNetV3 Large":
-    model_file= "mobilenet_large_consol_Adv.pth"        
+    model_file= "mobilenet_large_consol_Adv.pth"   
+    
 if st.button("Load Model"):
     if not os.path.exists(model_file):
         st.error("Model file does not exist. Please check the path.")
@@ -70,8 +72,7 @@ if uploaded_file:
     input_tensor = transform(image).unsqueeze(0).to(device)
 
     # Load the model (for example, DenseNet)
-    model_type = "dense"  # or any other model type you need to load
-    model = load_model(model_type)
+
     
     # Perform inference
     with torch.no_grad():
