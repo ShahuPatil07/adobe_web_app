@@ -72,6 +72,7 @@ if uploaded_file:
     input_tensor = transform(image).unsqueeze(0).to(device)
 
     # Load the model (for example, DenseNet)
+    model = load_model(model_choice.lower(), model_file)
 
     
     # Perform inference
