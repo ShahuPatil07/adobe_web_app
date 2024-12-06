@@ -61,12 +61,17 @@ transform = transforms.Compose([
 # Upload and process image
 uploaded_file = st.file_uploader("Upload an image (JPG/PNG)", type=["jpg", "jpeg", "png"])
 
-if uploaded_file or 'model' in locals():
-    # Load and preprocess the image
+if uploaded_file:
+    # Open image
     image = Image.open(uploaded_file).convert("RGB")
     st.image(image, caption="Uploaded Image", use_column_width=True)
     
+    # Apply transformations to the image
     input_tensor = transform(image).unsqueeze(0).to(device)
+
+    # Load the model (for example, DenseNet)
+    model_type = "dense"  # or any other model type you need to load
+    model = load_model(model_type)
     
     # Perform inference
     with torch.no_grad():
@@ -75,6 +80,6 @@ if uploaded_file or 'model' in locals():
         pred = torch.argmax(prob).item()
         label = "Real" if pred == 1 else "Fake"
     
-    # Display prediction
+    # Display prediction and confidence
     st.write(f"Prediction: *{label}*")
     st.write(f"Confidence: *{prob[pred].item():.2f}*")
