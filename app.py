@@ -84,4 +84,4 @@ if uploaded_file:
     
     # Display prediction and confidence
     st.write(f"Prediction: *{label}*")
-    st.write(f"Confidence: *{prob[pred].item():.2f}*")
+    # st.write(f"Confidence: *{prob[pred].item():.2f}*")
